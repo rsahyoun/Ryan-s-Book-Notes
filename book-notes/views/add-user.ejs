@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css">
+    <title>Add a New User</title>
+</head>
+<body>
+    <%- include('partials/header') %>
+    <h1>Add a New User</h1>
+    <form action="/users" method="POST">
+        <input type="text" name="username" placeholder="Username" required>
+        <button type="submit">Add User</button>
+    </form>
+    <a href="/">Back to Home</a>
+    <%- include('partials/footer') %>
+</body>
+</html> 

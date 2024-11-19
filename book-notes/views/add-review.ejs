@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css">
+    <title>Add a Review</title>
+</head>
+<body>
+    <%- include('partials/header') %>
+    <h1>Add a Review</h1>
+    <form action="/reviews" method="POST">
+        <select name="user_id" required>
+            <option value="">Select User</option>
+            <% users.forEach(user => { %>
+                <option value="<%= user.id %>"><%= user.username %></option>
+            <% }) %>
+        </select>
+        <select name="book_id" required>
+            <option value="">Select Book</option>
+            <% books.forEach(book => { %>
+                <option value="<%= book.id %>"><%= book.title %></option>
+            <% }) %>
+        </select>
+        <textarea name="review" placeholder="Write your review here" required></textarea>
+        <input type="number" name="rating" min="1" max="5" placeholder="Rating" required>
+        <button type="submit">Submit Review</button>
+    </form>
+    <a href="/">Back to Home</a>
+    <%- include('partials/footer') %>
+</body>
+</html>
+ 

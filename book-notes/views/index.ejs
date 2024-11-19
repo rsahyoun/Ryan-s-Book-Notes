@@ -9,9 +9,20 @@
 <body>
     <%- include('partials/header') %>
     <h1>My Book Notes</h1>
+    <a href="/add-book">Add a New Book</a>
+    <a href="/add-review">Add a Review</a>
+    <a href="/add-user">Add a New User</a>
+
     <ul>
         <% books.forEach(book => { %>
-            <li><strong><%= book.title %></strong> by <%= book.author %> - Rating: <%= book.rating %></li>
+            <li>
+                <strong><%= book.title %></strong> by <%= book.author %> - Rating: <%= book.rating %>
+                <ul>
+                    <% reviews.filter(review => review.title === book.title).forEach(review => { %>
+                        <li><%= review.username %>: <%= review.review %> (Rating: <%= review.rating %>)</li>
+                    <% }) %>
+                </ul>
+            </li>
         <% }) %>
     </ul>
     <%- include('partials/footer') %>
